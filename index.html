@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Live Location Viewer (User2)</title>
+    <title>Live Location Viewer (User 2)</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,15 +42,15 @@
         const app = firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
 
-        // Listen for changes in user1's location
+        // Listen for changes in User 1's location
         firebase.database().ref('users/user1').on('value', (snapshot) => {
             const data = snapshot.val();
             if (data) {
                 const lat = data.latitude;
                 const lon = data.longitude;
 
-                // Update the UI
-                const message = `Live Location: <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank">Open Map</a>`;
+                // Update the UI with the "I'm here" message and link
+                const message = `I'm here: <a href="https://www.google.com/maps?q=${lat},${lon}" target="_blank">https://www.google.com/maps?q=${lat},${lon}</a>`;
                 document.getElementById('locationStatus').innerHTML = message;
             } else {
                 document.getElementById('locationStatus').innerText = "No location data available.";
